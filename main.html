@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="logo3.svg">
+  <title>Apex Securities - India’s Beloved Security Service</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #000;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background-color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid #eee;
+    }
+    .logo {
+      background-color: #f7d600;
+      color: #000;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 15px;
+      font-size: 1.2rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 30px;
+      margin-right: 0.5rem;
+    }
+
+    .logo n {
+      color: #ffffff;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    nav {
+      display: flex;
+      gap: 15px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #000;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: 20ms ease-in-out;
+    }
+    nav a.active {
+      border-bottom: 2px solid #000;
+    }
+    nav a:hover{
+        border-bottom: 2px solid #000;
+    }
+    .btn-download {
+      background-color: #000;
+      color: #fff;
+      padding: 8px 15px;
+      border-radius: 15px;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #000;
+      margin: 4px 0;
+      border-radius: 3px;
+    }
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+      nav.show {
+        display: flex;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+      .btn-download {
+        display: none;
+      }
+    }
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 15px;
+      background-color: #fff;
+    }
+  
+    .hero-text {
+      flex: 1 1 300px;
+      max-width: 500px;
+      padding: 10px;
+    }
+    .hero-text h1 {
+      font-size: 2rem;
+      margin: 0;
+    }
+    .hero-text h2 {
+      color: #777;
+      margin: 10px 0;
+      font-size: 1.2rem;
+    }
+    .hero-text p {
+      color: #555;
+      line-height: 1.5;
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+    .hero-text li{
+      color: #555;
+      line-height: 1.5;
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+    .hero-images {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 10px;
+    }
+    .hero-images img {
+      width: 150px;
+      border-radius: 15px;
+    }
+    .founders {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #fff8d6;
+    }
+    .founders h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    .founder-list {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .founder {
+      text-align: center;
+      max-width: 150px;
+    }
+    .founder img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    .jobs {
+      background-color: #f7d600;
+      text-align: center;
+      padding: 60px 15px;
+    }
+    .jobs h2 {
+      font-size: 1.5rem;
+      color: #000;
+    }
+    .jobs p {
+      color: #000;
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+    .jobs button {
+      background-color: #000;
+      color: #fff;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    footer {
+      background-color: #000;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+    }
+    footer .apps img {
+      width: 120px;
+      margin: 5px;
+    }
+    footer .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+    footer .links div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    footer a {
+      text-decoration: none;
+      color: #fff;
+      margin: 5px 0;
+      font-size: 0.9rem;
+    }
+    footer .social a {
+      margin: 0 8px;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+    .bt a{
+      text-decoration: none;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+    <img src="logo3.svg" alt="APEX SECURITIES Logo">
+    <n>APEX SECURITIES</n>
+  </div>
+    <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('show')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#" class="active">About Us</a>
+      <a href="#">Careers</a>
+      <a href="#">Plans & Pricing</a>
+      <a href="#">Contact Us</a>
+    </nav>
+    <a href="#" class="btn-download">Download App</a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h2>India's Premier</h2>
+      <h1>Subscription-Based Security Solution</h1>
+      <p><strong>Trusted Security, Delivered with Honor</strong><br>
+        At APEX SECURITIES, we believe that security is not just a service — <br>it’s a promise. Based in Lucknow, India, we provide professional security guards on-demand for personal protection, events, and private premises.
+           <br>Our team consists of highly trained former police officers and ex-army professionals, bringing years of discipline, vigilance, and real-world experience to safeguard what matters most to you. </p>
+      <p><strong>What makes us different?</strong><br>
+        Elite Personnel: Only the most qualified and background-verified guards.
+        <li>On-Demand Protection: Hire trusted security instantly with our easy online booking.</li>
+        <li>Tailored Security Solutions: Whether it’s a personal requirement, a small gathering, or a high-profile event, we adapt to your needs.</li>
+        <li>Trusted & Local: Proudly serving Lucknow with reliability, integrity, and a personal touch.</li> 
+        <p><strong>Stay Safe. Stay Secure.</strong><br>With APEX SECURITIES, you’re not just hiring guards — you’re gaining peace of mind.
+        Book professional protection today and experience security you can trust. </p>
+      </p>
+    </div>
+    <div class="hero-images">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="Security Guard">
+      <img src="https://ix-marketing.imgix.net/autotagging.png?auto=format,compress&w=1946" alt="Team Member">
+    </div>
+  </section>
+
+  <section class="founders">
+    <h2>Champions of Our Mission:</h2>
+    <div class="founder-list">
+      <div class="founder">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="Founder 1">
+        <h3>Rishikesh S R</h3>
+        <p>Founder</p>
+      </div>
+      <div class="founder">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="Founder 2">
+        <h3>Pavan Guntupalli</h3>
+        <p>Founder</p>
+      </div>
+      <div class="founder">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="Founder 3">
+        <h3>Aravind Sanka</h3>
+        <p>Founder</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="jobs">
+    <h2>Jobs @ Apex Securities</h2>
+    <p>Join our elite team of security professionals. We’re hiring dedicated security guards and personal protection officers. Start your career with flexible shifts, competitive pay, and growth opportunities.</p>
+    <div class="bt">
+      <button><a href="file:///C:/Users/hrupe/OneDrive/Desktop/About_me/ApexSecurity/careers/main.html#">Work with us</a></button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="apps">
+      <img src="https://via.placeholder.com/150x50?text=Google+Play" alt="Google Play">
+      <img src="https://via.placeholder.com/150x50?text=App+Store" alt="App Store">
+    </div>
+    <div class="links">
+      <div>
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Careers</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+      <div>
+        <a href="#">Customer Terms - Security Services</a>
+        <a href="#">Corporate Affairs</a>
+      </div>
+      <div>
+        <a href="#">Team Policies</a>
+        <a href="#">Blog</a>
+        <a href="#">Press</a>
+      </div>
+    </div>
+    <div class="social">
+      <a href="#">Facebook</a>
+      <a href="#">Twitter</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Instagram</a>
+    </div>
+  </footer>
+</body>
+</html>

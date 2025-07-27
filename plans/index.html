@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security Guard Services</title>
+  <link rel="icon" href="logo3.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    .hero {
+      background: url('bg.jpg') center/cover no-repeat;
+      position: relative;
+      padding: 120px 10%;
+      text-align: left;
+      color: white;
+    }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+    .hero p { font-size: 1.1rem; margin-bottom: 20px; }
+
+    .btn {
+      padding: 12px 25px;
+      background: #f05625;
+      color: white;
+      font-weight: 600;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn:hover { transition: 50ms; background: #b63c18; }
+
+    .plans {
+      background: #fff;
+      text-align: center;
+      padding: 60px 10%;
+    }
+    .plans h2 { margin-bottom: 40px; font-size: 2rem; }
+
+    .plan-cards {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 30px;
+      width: 330px;
+      text-align: left;
+    }
+    .card h3 { margin-bottom: 10px; font-size: 1.3rem; }
+    .card ul { list-style: disc; padding-left: 20px; margin: 15px 0; }
+    .card1 { margin-top: 3rem; }
+    .card3 { margin-top: 2rem; }
+    .card .price { font-size: 1.1rem; margin: 10px 0; }
+
+    .booking, .testimonials {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 60px 10%;
+    }
+
+    .booking form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      flex: 1 1 45%;
+    }
+    .booking h2 { margin-bottom: 20px; }
+    form input, form select, form textarea {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .testimonials { flex: 1 1 45%; }
+    .testimonial {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .footer {
+      background: #000000;
+      color: white;
+      text-align: center;
+      padding: 30px 10%;
+    }
+    .footer a { color: white; margin: 0 10px; text-decoration: none; }
+
+    @media (max-width: 768px) {
+      header, .plans, .booking, .testimonials { padding: 20px; }
+      .hero { padding: 40px 20px; text-align: center; }
+      .plan-cards, .booking, .testimonials { flex-direction: column; align-items: center; }
+      .booking form, .testimonials { flex: 1 1 100%; width: 100%; }
+    }
+
+    button { background-color: #b63d1800; border: #002b4900; color: white; }
+    .anouncement { background-color: red; opacity: 0.8; color: white; }
+    h3 { opacity: 1; padding: .5vh; font-size: 1rem; font-weight: 1000; }
+
+    header {
+      display: flex;
+      height: 4rem;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #ffffff;
+      padding: 15px 20px;
+      color: white;
+      position: relative;
+      z-index: 10;
+       border-bottom: 1px solid #eee;
+    }
+
+    .logo {
+      margin-left: .4rem;
+      font-size: 1.8rem;
+      font-weight: bold;
+      background-color: #f7d600;
+      color: #000;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 15px;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+    }
+    .logo img { height: 30px; margin-right: 0.5rem; }
+    .logo n { color: #ffffff; font-size: 1.5rem; font-weight: bold; }
+
+    nav ul { display: flex; list-style: none; }
+    nav ul li { margin: 0 15px; }
+    o { border-bottom: 2px solid #000; }
+    nav ul li a {
+      text-decoration: none;
+      color: rgb(0, 0, 0);
+      font-weight: 500;
+      transition: 20ms ease-in-out;
+      font-size: 15px;
+    }
+    nav ul li a:hover { border-bottom: 2px solid #000; }
+
+    .nav-toggle { display: none; }
+    .nav-toggle-label {
+      top: .6rem;
+      display: none;
+      cursor: pointer;
+      height: 24px;
+      width: 30px;
+      position: relative;
+    }
+    .nav-toggle-label span,
+    .nav-toggle-label span::before,
+    .nav-toggle-label span::after {
+      display: block;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background: rgb(0, 0, 0);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      content: "";
+    }
+    .nav-toggle-label span::before { top: -8px; }
+    .nav-toggle-label span::after { top: 8px; }
+
+    .nav-toggle:checked + nav { max-height: 500px; opacity: 1; }
+    .nav-toggle:checked + nav ul { display: flex; }
+    .nav-toggle:checked + nav + .nav-toggle-label span { background: transparent; }
+    .nav-toggle:checked + nav + .nav-toggle-label span::before {
+      transform: rotate(45deg); top: 0;
+    }
+    .nav-toggle:checked + nav + .nav-toggle-label span::after {
+      transform: rotate(-45deg); top: 0;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 65px;
+        left: 0;
+        right: 0;
+        background-color: #000000;
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+      nav ul {
+        flex-direction: column;
+        padding: 0;
+        display: none;
+      }
+      nav ul li {
+        text-align: center;
+        padding: 15px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .nav-toggle-label { display: block; }
+      nav ul li a { font-size: 15px; color: #ffffff; }
+    }
+    span{
+      color: #ff4a13;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><img src="logo3.svg" height="40rem"><n>APEX SECURITIES</n></div>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a><o>Plans & Pricing</o></a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <label for="nav-toggle" class="nav-toggle-label">
+      <span></span>
+    </label>
+  </header>
+<marquee>At APEX, you’re not just hiring guards — you’re gaining peace of mind. Book professional protection today and experience security you can trust.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🎉 Get <span>15% OFF</span> on our Grand Opening! Limited time only. 🎉</marquee>
+  <section class="hero">
+    <h1>Hire Trusted Guards & Security Officers with Ease</h1>
+    <p>Secure your premises with confidence.<br>Our team of highly skilled and professionally trained security personnel provides immediate,<br>reliable protection tailored to your needs. With a focus on vigilance, rapid response, and uncompromising quality, we make safeguarding your assets our foremost mission.</p>
+    <a href="#" class="btn">Book Now</a>
+  </section>
+
+  <section class="plans">
+    <h2>Choose Your Security Plan</h2>
+    <div class="plan-cards">
+      <div class="card1">
+        <div class="card">
+          <h3>Basic</h3>
+          <p>Perfect for small events or premises</p>
+          <ul>
+            <li>1 guard</li>
+            <li>4-hour minimum booking</li>
+            <li>Basic security equipment</li>
+          </ul>
+          <p class="price">₹X per hour</p>
+          <a href="#" class="btn">Book Now</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Gold</h3>
+        <p>Ideal for medium-sized events or premises</p>
+        <ul>
+          <li>2 guards</li>
+          <li>4-hour minimum booking</li>
+          <li>Advanced security equipment</li>
+          <li>Supervisory services</li>
+        </ul>
+        <p class="price">₹Y per hour</p>
+        <a href="#" class="btn">Book Now</a>
+      </div>
+      <div class="card3">
+        <div class="card">
+          <h3>Platinum</h3>
+          <p>Best for large events or high-security premises</p>
+          <ul>
+            <li>2 guards</li>
+            <li>4-hour minimum booking</li>
+            <li>Advanced security</li>
+            <li>Customized security solutions</li>
+          </ul>
+          <p class="price">₹Z per hour</p>
+          <a href="#" class="btn">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="booking">
+    <form>
+      <h2>Book Your Personal Security Now</h2>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+      <label for="location">Location</label>
+      <input type="text" id="location" name="location" placeholder="Location" required>
+      <label for="datetime">Date and Time</label>
+      <input type="datetime-local" id="datetime" name="datetime" required>
+      <label for="guards">Number of Guards Required</label>
+      <input type="number" id="guards" name="guards" min="1" placeholder="e.g., 1" required>
+      <label for="phone">Mobile Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="e.g., +1234567890" required>
+      <label for="plan">Security Plan</label>
+      <select id="plan" name="plan" required>
+        <option value="">Select a Plan</option>
+        <option value="basic">Basic</option>
+        <option value="gold">Gold</option>
+        <option value="platinum">Platinum</option>
+      </select>
+      <label for="requirements">Additional Requirements (Optional)</label>
+      <textarea id="requirements" name="requirements" placeholder="Any specific instructions or needs..."></textarea>
+      <button class="btn" type="submit">Book Now</button>
+    </form>
+
+    <div class="testimonials">
+      <h2>What Our Clients Say</h2>
+      <div class="testimonial">
+        <p>"Excellent security services, highly recommend!"</p>
+        <strong>Client Name</strong>
+      </div>
+      <div class="testimonial">
+        <p>"Professional guards, on-time and efficient."</p>
+        <strong>Client Name</strong>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>
+      <button onclick="copyTextcontact()">Contact Information</button> |
+      <button onclick="copyTextaddress()">Address</button> |
+      <button onclick="copyTextphone()"> Phone: XXXXXXXXXX</button>
+    </p>
+    <br>
+    <div>
+      <a href="#">Facebook</a>
+      <a href="#">Twitter</a>
+      <a href="#">LinkedIn</a>
+    </div>
+    <br>
+    <p>&copy; 2025 ApexSecurities.Pvt.Ltd . All rights reserved.</p>
+  </footer>
+
+  <script>
+    function copyTextphone() {
+      navigator.clipboard.writeText("XXXXXXXXXX");
+    }
+    function copyTextaddress() {
+      navigator.clipboard.writeText("Address");
+    }
+    function copyTextcontact() {
+      navigator.clipboard.writeText("Contact");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APEX Securities - Join Our Elite Security Team</title>
+  <link rel="icon" href="logo3.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      padding: .8rem 2rem;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #eee
+    }
+
+    .logo {
+      background-color: #f7d600;
+      color: #000;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 15px;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 30px;
+      margin-right: 0.5rem;
+    }
+
+    .logo n {
+      color: #ffffff;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav {
+      position: relative;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      font-size: 18px;
+      color: black;
+      text-decoration: none;
+      transition: 20ms ease-in-out;
+    }
+
+    nav ul li a:hover {
+      border-bottom: 2px solid #000;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      width: 30px;
+      height: 24px;
+      justify-content: space-between;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 100%;
+      background: rgb(0, 0, 0);
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+
+    .hero {
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 6rem 2rem;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 31, 60, 0.7);
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 800px;
+      margin: auto;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: #f7d600;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+    }
+
+    .apply-button {
+      background-color: #f7d600;
+      color: #0A1F3C;
+      padding: 1rem 2.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition:  0.3s;
+    }
+
+    .apply-button:hover {
+      background-color: #c1a700;
+    }
+
+    .benefits {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 3rem auto;
+      gap: 2rem;
+      max-width: 1200px;
+      text-align: center;
+    }
+
+    .benefit {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      flex: 1 1 250px;
+    }
+
+    .benefit img {
+      height: 60px;
+      margin-bottom: 1rem;
+    }
+
+    .benefit h3 {
+      margin-bottom: 0.5rem;
+      color: #444444;
+    }
+
+    .contact {
+      text-align: center;
+      margin: 2rem 0;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .contact span {
+      color: #f7d600;
+    }
+
+    .footer-dark {
+      background: #000000;
+      color: #ffffff;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .footer-dark h3 {
+      color: #777;
+      margin-bottom: 1rem;
+    }
+
+    .footer-dark p {
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+    o{
+        color: #000000;
+    }
+    .active {
+      border-bottom: 2px solid #000;
+    }
+        @media (max-width: 768px) {
+      nav ul {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #000000ec;
+        flex-direction: column;
+        gap: 1rem;
+        width: 200px;
+        padding: 1rem;
+        display: none;
+        border-radius: 20px;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+      nav ul li a {
+      color: rgb(255, 255, 255);
+    }
+    o{
+      color: white;
+    }
+        .active {
+      border-bottom: 2px solid #ffffff;
+    }
+    nav ul li a:hover{
+      border-bottom: 2px solid #ffffff;
+    }
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo3.svg" alt="APEX SECURITIES Logo">
+    <n>APEX SECURITIES</n>
+  </div>
+  <nav>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul id="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li class="active"><a><o>Careers</o></a></li>
+      <li><a href="#">Plans & Pricing</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Build Your Future with APEX Securities</h1>
+    <p>Join our elite team of security professionals. We’re hiring dedicated security guards and personal protection officers. Start your career with flexible shifts, competitive pay, and growth opportunities.</p>
+    <a href="#" class="apply-button">Apply Now</a>
+  </div>
+</section>
+
+<section class="benefits">
+  <div class="benefit">
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Pay Icon">
+    <h3>Competitive Salary</h3>
+    <p>Earn top industry pay with additional performance incentives.</p>
+  </div>
+  <div class="benefit">
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="Schedule Icon">
+    <h3>Flexible Shifts</h3>
+    <p>Choose work hours that suit your lifestyle and commitments.</p>
+  </div>
+  <div class="benefit">
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" alt="Career Icon">
+    <h3>Career Growth</h3>
+    <p>Opportunities to advance into supervisory and specialist roles.</p>
+  </div>
+</section>
+
+<div class="contact">
+  Call us now: <span>+91-9876543210</span>
+</div>
+
+<div class="footer-dark">
+  <h3>APEX SECURITIES</h3>
+  <p>Providing trusted security solutions with a team of highly trained professionals. Your safety, our mission.</p>
+  <p>© 2025 APEX SECURITIES PVT. LTD.</p>
+</div>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('show');
+  });
+</script>
+
+</body>
+</html>
